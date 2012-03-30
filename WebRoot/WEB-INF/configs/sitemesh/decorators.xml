@@ -1,0 +1,26 @@
+<decorators defaultdir="/WEB-INF/jx/common/decorators">
+    <!-- excludes用来定义不需要过滤的页面 -->
+    <excludes> 
+    	<pattern>/*ProxoolManage*</pattern>
+        <pattern>/*.xml.htm</pattern>
+        <pattern>*/css/*</pattern>
+		<pattern>*/js/*</pattern>
+		<pattern>*/images/*</pattern>
+		<pattern>*/decorators/*</pattern>
+		<pattern>/*_ajax.htm</pattern>
+		<pattern>/manage/*.htm</pattern>
+		<pattern>*receive.jsp*</pattern>
+		<pattern>/web/*.htm</pattern>
+		<pattern>*/Kindeditor_*.jsp</pattern>
+    </excludes>
+    <!-- decorator用来定义装饰器要过滤的页面 -->
+    <decorator name="system" page="system.jsp"/>
+    <decorator name="application" page="application.jsp"/>
+    <decorator name="web" page="web.jsp">
+        <pattern>/</pattern>
+    </decorator>
+    <decorator name="sub" page="sub.jsp">
+        <pattern>/sub/*.htm</pattern>
+    </decorator>
+    
+</decorators>

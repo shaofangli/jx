@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-dependency-check="none" default-lazy-init="false">
+
+	<!-- 拦截器 -->
+
+	<!-- *******************************\\方法拦截//******************************* 
+	<bean id="mutControllerBefor"
+		class="jx.common.interceptor.befors.MutControllerBefor">
+	</bean>
+
+	<bean id="mutbeforAdvice"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref="mutControllerBefor" />
+		<property name="patterns">
+			<list>
+				<value>.*select.*</value>
+				<value>.*update.*</value>
+				<value>.*delete.*</value>
+				<value>.*insert.*</value>
+			</list>
+		</property>
+	</bean>-->
+	<!-- //////befors//////// -->
+	<!-- /index.htm、/next.ajax  用 mutbeforAdvice 定义的方式拦截 
+	<bean id="mutproxyAop"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>/manage/xtsz_ajax.htm</value>
+				<value>/manage/jsgl_ajax.htm</value>
+				<value>/manage/yhgl_ajax.htm</value>
+				<value>/manage/wzgl_ajax.htm</value>
+				<value>/manage/tpgl_ajax.htm</value>
+				<value>/manage/zxbm_ajax.htm</value>
+				<value>/manage/grgl_ajax.htm</value>
+				<value>/sub/lygl_.ajax.htm</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>mutbeforAdvice</value>
+			</list>
+		</property>
+	</bean> -->
+	<!-- ===============================\\方法拦截//=============================== -->
+</beans>

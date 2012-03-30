@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-dependency-check="none" default-lazy-init="false">
+
+    <!--
+        ********************** Controllers_common ****************************
+    -->
+	<bean name="/404.htm" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="/common/errors/404"/>
+    </bean>
+    
+    <!--
+        ********************** Controllers ****************************
+    -->
+    <bean name="/web/main.htm" class="jx.web.controller.IndexController" >
+        <property name="viewName" value="/web/main"/>
+        <property name="topbox1" value="/web/flow/tpbox_top"/>
+        <property name="topbox2" value="/web/flow/tpbox_botm"/>
+        <property name="xwzxbox" value="/web/flow/xwzx_toplist"/>
+        <property name="jxgkbox" value="/web/flow/jxgk_tp"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/web/reg.htm" class="jx.web.controller.RegController">
+        <property name="viewName" value="/web/reg"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/web/login.htm" class="jx.web.controller.LoginController">
+    	<property name="viewName" value="/web/main"/>
+    	<property name="initwjmm_page" value="/web/wjmm"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <!-- manage -->
+    <bean name="/manage/main.htm" class="jx.manage.controller.MainController">
+        <property name="viewName" value="/manage/main"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/manage/xtsz_ajax.htm" class="jx.manage.controller.XtSetController">
+    	<property name="viewName" value="/manage/wzgl/xtsz/update"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/manage/jsgl_ajax.htm" class="jx.manage.controller.JsglController">
+        <property name="jsgl_initpg" value="/manage/wzgl/jsgl/main"/>
+        <property name="jsgl_showpg" value="/manage/wzgl/jsgl/follow"/>
+        <property name="jsgl_initupdatepg" value="/manage/wzgl/jsgl/update"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/manage/yhgl_ajax.htm" class="jx.manage.controller.YhglController">
+        <property name="yhgl_initpg" value="/manage/wzgl/yhgl/main"/>
+        <property name="yhgl_showpg" value="/manage/wzgl/yhgl/follow"/>
+        <property name="yhgl_initupdatepg" value="/manage/wzgl/yhgl/update"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/manage/wzgl_ajax.htm" class="jx.manage.controller.WzglController">
+        <property name="wzgl_initpg" value="/manage/wzgl/wzgl/main"/>
+        <property name="wzgl_showpg" value="/manage/wzgl/wzgl/follow"/>
+        <property name="wzgl_initupdatepg" value="/manage/wzgl/wzgl/update"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/manage/tpgl_ajax.htm" class="jx.manage.controller.TpglController">
+        <property name="tpgl_initpg" value="/manage/wzgl/tpgl/main"/>
+        <property name="tpgl_showpg" value="/manage/wzgl/tpgl/follow"/>
+        <property name="tpgl_initupdatepg" value="/manage/wzgl/tpgl/update"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/manage/zxbm_ajax.htm" class="jx.web.controller.sub.ZxbmController">
+    	<property name="viewName" value="/manage/wzgl/zxbm/main"/>
+    	<property name="zxbm_showpg" value="/manage/wzgl/zxbm/follow"></property>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/manage/grgl_ajax.htm" class="jx.manage.controller.GrglController">
+        <property name="grgl_initupdatepg" value="/manage/wzgl/grgl/update"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <!-- subpage -->
+    <bean name="/sub/sub.htm" class="jx.web.controller.sub.SubController">
+        <property name="viewName" value="/web/sub/zy"/>
+        <property name="initlybpg" value="/web/sub/lyb/main"/>
+        <property name="initzxbmpg" value="/web/sub/zxbm/main"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+    <bean name="/sub/lygl_ajax.htm" class="jx.web.controller.sub.LybController">
+    	<property name="viewName" value="/manage/wzgl/lygl/main"/>
+        <property name="lyb_showpg" value="/web/sub/lyb/flow"/>
+        <property name="lygl_showpg" value="/manage/wzgl/lygl/follow"/>
+        <property name="methodNameResolver" ref="mnResolver" />
+    </bean>
+</beans>

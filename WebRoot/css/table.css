@@ -1,0 +1,115 @@
+
+.genericTbl {
+    color: #4f6b72;
+    background-color: #fff;
+    width: 671px;
+    font-size: 95%;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+
+.genericTbl th, .genericTbl td {
+    padding: 1px 5px 2px 5px;
+}
+
+.genericTbl th {
+    border-top: 1px solid #C1DAD7;
+    text-transform: uppercase;
+    text-align: left;
+    background-color: #CAE8EA;
+}
+
+.genericTbl td {
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    margin: 0; /*color: #4f6b72;*/
+}
+
+.genericTbl td.leftmost {
+    border-left: 1px solid #C1DAD7;
+}
+
+.genericTbl tr.even {
+    background: #FFFFE0;
+}
+
+.genericTbl tr:hover {
+    background-color: #F0F8FF;
+}
+.genericTbl a:link, .genericTbl a:active, .genericTbl th a:visited {
+    color: #4f6b72;
+    text-decoration: none;
+    border-bottom: 1px dashed #4f6b72;
+}
+
+.genericTbl th a:hover {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.genericTbl td a:link, .genericTbl a:visited {
+    color: #40659B;
+    text-decoration: none;
+    border-bottom: 1px none;
+}
+
+.genericTbl td a:hover, .genericTbl td:hover a {
+    color: #003366;
+    border-bottom: 1px dashed #bbb;
+}
+
+.genericTbl td a.imglink:hover,  .genericTbl td:hover a.imglink {
+    border-bottom: none;
+}
+
+.highlighted {
+    background-color: #FFF0F0;
+}
+
+.statsTable {
+    padding: 0;
+    margin: 0;
+    width: 99%;
+}
+
+.statsTable th, .statsTable td {
+    padding: 1px 5px 1px 5px;
+    border-right: 1px solid #ddd;
+    color: #444;
+}
+
+.statsTable th {
+    border-top: 1px solid #ddd;
+    background-color: #eee;
+}
+
+.statsTable td {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.statsTable .leftMost {
+    border-left: 1px solid #ddd;
+}
+
+.statsTable a:link, .statsTable a:active, .statsTable a:visited {
+    color: #40659B;
+    text-decoration: none;
+    border-bottom: 1px dashed #bbb;
+}
+
+a.imglink:visited, a.imglink:active, a.imglink:link {
+    border-bottom: none;
+}
+/*----------------------------page----------------------*/
+#firstd {background:#fff url(../images/control_start_blue.png) left center no-repeat;}
+#backd {background:#fff url(../images/control_rewind_blue.png) left center no-repeat;}
+#nextd {background:#fff url(../images/control_fastforward_blue.png) left center no-repeat;}
+#lastd {background:#fff url(../images/control_end_blue.png) left center no-repeat;}
+#qx_xx {background:#fff url(../images/shape_group.png) left top no-repeat;}
+#fx_xx {background:#fff url(../images/shape_handles.png) left top no-repeat;}
+#dl_xxs {background:#fff url(../images/tab_delete.png) left top no-repeat;}
+#dl_xxs_dq {background:#fff url(../images/table_delete.png) left top no-repeat;}
+#dl_xxs_all {background:#fff url(../images/bin.png) left top no-repeat;}
+#deleted {background:#fff url(../images/bin_closed.png) left top no-repeat;}

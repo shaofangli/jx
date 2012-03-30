@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <display-name>JxXT by Aj</display-name> 
+    
+    <context-param>
+    	<param-name>sitemesh.configfile</param-name>
+    	<param-value>/WEB-INF/configs/sitemesh/sitemesh.xml</param-value>
+    </context-param>
+    <!-- proxool -->
+    <servlet>
+	    <servlet-name>ServletConfigurator</servlet-name>
+	    <servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+	    <init-param>
+	      <param-name>propertyFile</param-name>
+	      <param-value>/WEB-INF/configs/db.properties</param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+  	</servlet>
+	<servlet> 
+		<servlet-name>ProxoolManage</servlet-name> 
+		<servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class> 
+	</servlet> 
+	<servlet-mapping> 
+		<servlet-name>ProxoolManage</servlet-name> 
+		<url-pattern>/ProxoolManage</url-pattern> 
+	</servlet-mapping>
+
+
+    <!--
+        Core dispatcher servlet
+    -->
+    <servlet>
+        <servlet-name>jx</servlet-name>
+        <servlet-class>jx.common.servlet.JxServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/configs/spring/spring-*</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jx</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+
+    <!--
+        Sitemesh filter
+    -->
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>jx.common.filter.MySitemeshFilter</filter-class>
+        <init-param>
+        	<param-name></param-name>
+        	<param-value></param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping> 
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+
+    <!-- error page -->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/403.htm</location>
+    </error-page> 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.htm</location>
+    </error-page>
+
+    <!-- exception -->
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/WEB-INF/jx/common/errors/servleterror.jsp</location>
+    </error-page>
+	
+	<welcome-file-list>
+		<welcome-file>tjxidx.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<listener>
+		<listener-class>jx.common.listeners.AppListener</listener-class>
+	</listener>
+	
+	<!--  
+    <context-param>
+        <description>Role that can view session attribute values</description>
+        <param-name>attribute.value.role</param-name>
+        <param-value>manager</param-value>
+    </context-param>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>jx User URLs</web-resource-name>
+            <url-pattern>/</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>jxuser</role-name>
+            <role-name>poweruser</role-name>
+            <role-name>manager</role-name>
+            <role-name>poweruserplus</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>jx Power-User URLs</web-resource-name>
+            <url-pattern>/app/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>poweruser</role-name>
+            <role-name>manager</role-name>
+            <role-name>poweruserplus</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>JVM-Restart via Service Wrapper</web-resource-name>
+            <url-pattern>/adm/restartvm.ajax</url-pattern>
+            <url-pattern>/sql/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>poweruserplus</role-name>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>jx Admin (manager) URLs</web-resource-name>
+            <url-pattern>/adm/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+
+    <login-config> 
+        <auth-method>BASIC</auth-method>
+        <realm-name>Jx</realm-name>
+    </login-config>
+
+    <security-role>
+        <role-name>manager</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>poweruser</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>poweruserplus</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>jxuser</role-name>
+    </security-role>
+	-->
+</web-app>
